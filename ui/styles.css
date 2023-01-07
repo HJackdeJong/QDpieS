@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 @font-face {
     font-family: 'Nav-font';
     src: url("./klavika-light.otf") format("opentype");
@@ -48,8 +51,9 @@ body {
 }
 
 img {
-    width: 10%;
+    width: 20%;
     margin: 0 auto;
+    padding: 2%;
 }
 
 
@@ -95,8 +99,29 @@ nav a {
     border: 1px rgb(50, 50, 50) solid;
     margin-top: 2%;
     border-radius: .4em;
+    
+    transition: all 0.2s ease-out;
+
 }
 
+.card:hover {
+    transition: all 0.2s ease-out;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
+    top: -4px;
+    border: 1px solid #cccccc;
+    transform: translate(10px, -10px);
+  }
+
+  .card:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    transform: scale(2);
+    transform-origin: 50% 50%;
+    transition: transform 0.15s ease-out;
+  }
 .big-number, .small-number{
     
     display: flex;
