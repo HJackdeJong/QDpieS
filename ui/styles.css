@@ -28,6 +28,12 @@ html, body {
     color: white;
 }
 
+.main {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+
+}
+
 body {
 
   }
