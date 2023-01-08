@@ -52,8 +52,6 @@ html, body {
 
 }
 
-
-
 /* nav styles */
 
 nav {
@@ -78,11 +76,15 @@ nav a {
 
 .hoverable {
     color: rgba(210, 173, 173, 0.744);
-
 }
 
 .hoverable:hover {
-    transition: .3s ease-in;
+    color: rgb(0, 0, 0);
+    background-color: antiquewhite;
+    border-color: black;
+}
+
+.clickable:active {
     color: rgb(0, 0, 0);
     background-color: antiquewhite;
     border-color: black;
@@ -95,15 +97,16 @@ nav a {
     align-items: center;
 }
 
-.card {
+.dashboard-card {
     width: 275px;
     height: 275px;
     padding-bottom: 20%;
+}
+
+.card {
     border: 1px rgb(50, 50, 50) solid;
     margin-top: 2%;
     border-radius: .4em;
-    
-    
 }
 
 .card:hover {
@@ -164,4 +167,58 @@ aside img {
 
 .graph-card {
     border: solid antiquewhite 1px;
+} 
+
+/* schedule styles */
+.schedule-main {
+    display: flex;
+    /* justify-content: space-around; */
+    flex-wrap: wrap;
+}
+
+#schedule-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 2%;
+    gap: 20px;
+    overflow-x: scroll;
+}
+
+
+
+.site-card {    
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    border: solid white 1px;
+    border-radius: .4em;
+    padding: 1%;
+}
+
+.site-card .site-number {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: solid white 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.schedule-card {
+    width: 20%;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2%;
+}
+.schedule-card:hover {
+    box-shadow: 0px 8px 16px rgba(255, 255, 255, 0.2);
+}
+.schedule-card-right {
+    display: flex;
+    align-items: center;
 }
