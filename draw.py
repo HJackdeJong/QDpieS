@@ -108,7 +108,7 @@ start_time = time.mktime(time.strptime("Sun, Apr 3, 2022 12:01:00 AM", "%a, %b %
 game_running = True
 current_time = start_time
 
-for p in range(69):
+for p in range(1,2):
     print(p)
     set = 0
     with open(f'cleaned_trucks\\cleaned_truck{p}.csv', 'r') as input_file:
@@ -116,7 +116,7 @@ for p in range(69):
         for i, row in enumerate(reader):
             trucks[p,i,0] = int(((float(row[2])-min_east)*east_scale))+50
             trucks[p,i,1] = int(((float(row[1])-min_north)*north_scale))+50
-            if row[5] == "Empty" or row[5] == "Hauling" or row[5] == "Dumping" or row[5] == "Truck Loading" or row[5] == "Wenco General Production" or row[5] == "NON_PRODUCTIVE":
+            if row[5] == "Empty" or row[5] == "Hauling" or row[5] == "Dumping" or row[5] == "Truck Loading" or row[5] == "Wenco General Production":# or row[5] == "NON_PRODUCTIVE":
                 value = 0
             else:
                 value = 1
@@ -169,7 +169,7 @@ while True:
                 if trucks[p,i,2] == 1:
                     pygame.draw.circle(screen,truck_color[5],(trucks[p,i,0],trucks[p,i,1]),truck_point_size)
                 else:
-                    pygame.draw.circle(screen,truck_color[int(trucks[p,i,3])],(trucks[p,i,0],trucks[p,i,1]),truck_point_size)
+                    pygame.draw.circle(screen,truck_color[1],(trucks[p,i,0],trucks[p,i,1]),truck_point_size)
             except:
                 print(trucks[p,i,3])
             # pygame.draw.circle(screen,(222,255,255),(trucks[p,i,0],trucks[p,i,1]),truck_point_size)
