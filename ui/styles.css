@@ -106,10 +106,10 @@ nav a {
 
 .card:hover {
     transition: all 0.2s ease-out;
-    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 8px 16px rgba(255, 255, 255, 0.2);
     top: -4px;
     border: 1px solid #cccccc;
-    transform: translate(10px, -10px);
+    transform: translate(-10px, -10px);
   }
 
   .card:before {
@@ -151,3 +151,30 @@ nav a {
 .card-info {
     padding: 2%;
 }
+
+/* gauge styles */
+.gauge {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #eee;
+    position: relative;
+  }
+  
+  .gauge-needle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 100px solid red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: transform 0.2s;
+  }
+  
+  .gauge:hover .gauge-needle {
+    transform: translate(-50%, -50%) rotate(135deg);
+  }
+  
