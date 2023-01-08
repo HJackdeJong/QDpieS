@@ -60,7 +60,7 @@ truck_color = (255,255,0)
 # Set the shovel and dump point sizes
 shovel_point_size = 5
 dump_point_size = 5
-truck_point_size = 30
+truck_point_size = 5
 
 # Set the scale factors for the north and east values
 min_north = min(min(shovel, key=lambda x: x[0]), min(dump, key=lambda x: x[0]))[0]
@@ -108,11 +108,12 @@ i = -1
 while True:
     i+=1
     # Check for events
-    if i%rate == 0:
-        for event in pygame.event.get():
-            # Quit if the window is closed
-            if event.type == pygame.QUIT:
-                running = False
+    try:
+        if i%rate == 0:
+            for event in pygame.event.get():
+                # Quit if the window is closed
+                if event.type == pygame.QUIT:
+                    running = False
 
         # Create a new surface with the same size as the screen
         fade_surface = pygame.image.load("bg.png").convert_alpha()
@@ -122,8 +123,8 @@ while True:
         fade_surface.set_alpha(alpha)
         # fade_surface.fill((0, 0, 0))
 
-        # # Blit the fade_surface onto the screen
-        # screen.blit(fade_surface, (0, 0))
+            # Blit the fade_surface onto the screen
+            screen.blit(fade_surface, (0, 0))
 
         # Decrease the alpha value by the fade speed
         alpha = max(0, alpha - fade_speed)
