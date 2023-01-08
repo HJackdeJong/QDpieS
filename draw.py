@@ -55,7 +55,7 @@ bg_color = (255, 255, 255)
 # Set the shovel and dump colors
 shovel_color = (0, 0, 255)
 dump_color = (255, 0, 0)
-truck_color = (255,255,0)
+truck_color = [(100, 20, 199),(12, 127, 166),(17, 37, 189),(19, 191, 111),(11, 143, 29),(173, 7, 15)]
 
 # Set the shovel and dump point sizes
 shovel_point_size = 5
@@ -90,10 +90,27 @@ running = True
 alpha = 0
 fade_speed = 4
 rate = 1
-trucks = np.zeros((69, 1000000, 3))
+trucks = np.zeros((69, 1000000, 4))
 # screen.fill((139,69,19))
+set = 0
+type = 0
+
+# Set up the font
+font = pygame.font.Font(None, 36)
+
+# Set up the clock
+clock = pygame.time.Clock()
+
+# Set up the start time
+start_time = time.mktime(time.strptime("Sun, Apr 3, 2022 12:01:00 AM", "%a, %b %d, %Y %I:%M:%S %p"))
+
+# Set up the game variables
+game_running = True
+current_time = start_time
+
 for p in range(69):
     print(p)
+    set = 0
     with open(f'cleaned_trucks\\cleaned_truck{p}.csv', 'r') as input_file:
         reader = csv.reader(input_file)
         for i, row in enumerate(reader):
@@ -104,6 +121,12 @@ for p in range(69):
             else:
                 value = 1
             trucks[p,i,2] = value
+            if set == 0:
+                trucks[p,i,3] = int(row[8])
+                type = int(row[8])
+                set = 1
+            else:
+                trucks[p,i,3] = type
 i = -1
 while True:
     i+=1
@@ -142,11 +165,22 @@ while True:
         
         # pygame.draw.circle(screen,truck_color,(int(((float(row[2])-min_east)*east_scale)+50), int(((float(row[1])-min_north)*north_scale))+50),truck_point_size)
         for p in range(69):
-            pygame.draw.circle(screen,(255*trucks[p,i,2],int(150/(trucks[p,i,2]+1)),int(150/(trucks[p,i,2]+1))),(trucks[p,i,0],trucks[p,i,1]),truck_point_size)
+            try:
+                if trucks[p,i,2] == 1:
+                    pygame.draw.circle(screen,truck_color[5],(trucks[p,i,0],trucks[p,i,1]),truck_point_size)
+                else:
+                    pygame.draw.circle(screen,truck_color[int(trucks[p,i,3])],(trucks[p,i,0],trucks[p,i,1]),truck_point_size)
+            except:
+                print(trucks[p,i,3])
             # pygame.draw.circle(screen,(222,255,255),(trucks[p,i,0],trucks[p,i,1]),truck_point_size)
             # screen.blit(workerImg, (trucks[p,i,0],trucks[p,i,1]))
+        time_text = time.strftime("%a, %b %d, %Y %I:%M", time.localtime(current_time))
+        time_label = font.render(time_text, 1, (255, 255, 255))
+        screen.blit(time_label, (10, 10))
         pygame.display.flip()
-        # time.sleep(0.002)
+        # Update game state
+        current_time += 2
+        clock.tick(60)
 
 # Quit Pygame
 pygame.quit()
