@@ -60,7 +60,7 @@ truck_color = (255,255,0)
 # Set the shovel and dump point sizes
 shovel_point_size = 5
 dump_point_size = 5
-truck_point_size = 3
+truck_point_size = 30
 
 # Set the scale factors for the north and east values
 min_north = min(min(shovel, key=lambda x: x[0]), min(dump, key=lambda x: x[0]))[0]
@@ -122,8 +122,8 @@ while True:
         fade_surface.set_alpha(alpha)
         # fade_surface.fill((0, 0, 0))
 
-        # Blit the fade_surface onto the screen
-        screen.blit(fade_surface, (0, 0))
+        # # Blit the fade_surface onto the screen
+        # screen.blit(fade_surface, (0, 0))
 
         # Decrease the alpha value by the fade speed
         alpha = max(0, alpha - fade_speed)
