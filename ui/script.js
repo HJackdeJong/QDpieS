@@ -1,6 +1,6 @@
 
 // Read the CSV file
-fetch('tripFuelCons.csv')
+fetch('./truck')
   .then(response => response.text())
   .then((data) => {
     // Split the data into rows

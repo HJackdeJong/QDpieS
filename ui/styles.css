@@ -37,9 +37,6 @@ html, body {
     justify-content: space-around;
 }
 
-body {
-
-  }
   
 .header {
     display: grid;
@@ -47,31 +44,27 @@ body {
     margin: 0 0;
     width: 100%;
     border-bottom: 1px rgb(50, 50, 50) solid ;
-
 }
 
 .header > img {
     width: 20%;
-    margin: 2% auto;
+    margin: 2% ;
 }
+
+
 
 /* nav styles */
 
 nav {
     display: flex;
-    justify-content: space-around;
+    
     align-items: center;
-
+    justify-content: space-around;
 }
 
 nav a {
-    text-decoration: none;
-    font-weight: bold;  
-    padding: 2%; 
-    border: solid white 1px;
-    border-radius: 1em;
-    width: 20%;
     text-align: center;
+    transition: .2s ease-in;
 }
 
 .depth {
@@ -109,16 +102,23 @@ nav a {
     margin-top: 2%;
     border-radius: .4em;
     
-    transition: all 0.2s ease-out;
+    
 }
 
 .card:hover {
+    border: 1px solid #cccccc;
+  }
+
+.animate_hover {
+    transition: all 0.2s ease-out;
+
+}
+
+.animate_hover:hover {
+    transform: translate(-10px, -10px);
     transition: all 0.2s ease-out;
     box-shadow: 0px 8px 16px rgba(255, 255, 255, 0.2);
-    top: -4px;
-    border: 1px solid #cccccc;
-    transform: translate(-10px, -10px);
-  }
+}
 .big-number, .small-number{
     
     display: flex;
@@ -154,10 +154,13 @@ aside img {
     width: 100%;
 }
 
-
-
-
 .aside-header {
     font-size: 3em;
     font-weight: bolder;
+}
+
+/* graph styles */
+
+.graph-card {
+    border: solid antiquewhite 1px;
 }
