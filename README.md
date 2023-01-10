@@ -24,7 +24,7 @@ By using Mine Mate, haul truck drivers can make small adjustments to their speed
 
 # Tech Stack
 - Python
-- Google Cloud Big Query
+- Google Cloud BigQuery
 - HTML
 - CSS
 - JavaScript
