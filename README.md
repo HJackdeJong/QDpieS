@@ -1,4 +1,4 @@
-# Mine Mate
+# MineMate
 
 # Introduction
 Small changes can make a big difference in any industry, and this is especially true in the mining industry. Our team, the QDPieS, at QDS Hacks 2023, set out to find areas where we could make small improvements to have a significant impact. After analyzing over 12 million records and 50 million data points, we identified queueing at shovels and dump sites as a major problem. Trucks spent over 190 tonnes of Carbon Dioxide, over $110,000, and over 540 hours idling in just one week. Projected to a year, this amounts to over 10,000 tonnes of Carbon Dioxide, over $5.8 million dollars, and over 28,281 hours of waiting.
